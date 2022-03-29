@@ -1,0 +1,25 @@
+language: node_js
+cache:
+  directories:
+    - node_modules
+    - ~/.npm
+node_js:
+  - "12"
+git:
+  depth: 3
+script:
+  - yarn test
+notifications:
+  email:
+    recipients:
+      - danielfc_26@hotmail.com
+    on_success: always
+    on_failure: always
+deploy:
+  provide: heroku
+  skip_cleanup: true
+  keep_history: true
+  api_key: 9850562d-9838-490d-bac1-86e318bc3673 # Debemos generar una api key desde nuestra cuenta de heroku
+  app: platzi-store-backend-2
+  on:
+    repo: devnielote/platzi-store-backend
